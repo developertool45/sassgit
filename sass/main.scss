@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+// colors
+$primary-color : rgb(247, 218, 71); 
+$secondary-color : rgb(11, 11, 144);
+$tertiary-color:rgb(28, 24, 58);
+$color-text-dark:#000;
+$btn-color: rgb(243, 98, 98);
+$btn-color-second:rgb(33, 91, 183);
+$width-button: 150px;
+
+
+@mixin clearifix {
+    &::after{
+    Content: " ";
+    clear: both;
+    display:table;
+    }
+}
+
+@mixin listStyle{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav{
+    margin: 30px;
+    background-color:$primary-color;
+    @include clearifix();
+    
+}
+.navigation{
+    list-style: none;
+    float: left;
+
+    li{
+        display: inline-block;
+        margin-left: 10px;
+
+     &:first-child{
+        margin: 0;
+        }
+    }
+    
+    a{
+        @include listStyle;
+        color: $color-text-dark;
+    }    
+}
+.buttons{
+        float: right;
+        }
+
+.btn-main:link,.btn-Hot:link{
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    @include listStyle;
+    border-radius: 100px;
+    width: $width-button;   
+   
+}
+.btn-main{
+    color: rgb(255, 255, 255);
+    &:link{
+        background-color: $btn-color;      
+    }
+    &:hover{
+        background-color: darken($btn-color, 15%); 
+    }
+}
+.btn-Hot{
+     color: rgb(255, 255, 255);
+    &:link{
+        background-color: $btn-color-second;     
+    }
+    &:hover{
+        background-color: lighten($btn-color-second, 15%); 
+    }
+}
